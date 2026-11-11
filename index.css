@@ -1,0 +1,118 @@
+
+/* index.php only – dark glass dashboard (overrides style.css) */
+
+body {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 440px));
+    justify-content: center;
+    align-content: start;
+    gap: 26px;
+    padding-top: 70px;
+}
+
+h2 {
+    grid-column: 1 / -1;
+    margin-bottom: 10px;
+}
+
+hr {
+    display: none;
+}
+
+form {
+    max-width: none;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    color: #e8ecf8;
+    background: linear-gradient(
+        160deg,
+        rgba(24, 28, 54, .78),
+        rgba(10, 12, 28, .78)
+    );
+    border: 1px solid rgba(255, 255, 255, .14);
+    box-shadow: 0 16px 44px rgba(0, 0, 0, .5);
+}
+
+/* Coloured accent bar + glow per card */
+
+form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--c);
+    box-shadow: 0 0 22px var(--c);
+}
+
+form:nth-of-type(1) {
+    --c: linear-gradient(90deg, #22c55e, #38BDF8);
+}
+
+form:nth-of-type(2) {
+    --c: linear-gradient(90deg, #fbbf24, #f97316);
+}
+
+form:nth-of-type(3) {
+    --c: linear-gradient(90deg, #f43f5e, #ec4899);
+}
+
+form:nth-of-type(4) {
+    --c: linear-gradient(90deg, #8B5CF6, #38BDF8);
+}
+
+form:hover {
+    box-shadow: 0 22px 56px rgba(139, 92, 246, .45);
+    border-color: rgba(139, 92, 246, .6);
+}
+
+h3 {
+    color: #fff;
+    font-size: 1.35rem;
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+
+label {
+    color: #a9b4d6;
+    font-size: .82rem;
+    letter-spacing: .02em;
+}
+
+input,
+select {
+    background: rgba(255, 255, 255, .07);
+    border: 1px solid rgba(255, 255, 255, .16);
+    color: #fff;
+}
+
+input::placeholder {
+    color: #7c88ad;
+}
+
+select option {
+    background: #12152b;
+    color: #fff;
+}
+
+input:focus,
+select:focus {
+    background: rgba(255, 255, 255, .11);
+    border-color: #38BDF8;
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, .22);
+}
+
+/* Last card (View) fills the row nicely */
+
+form:nth-of-type(4) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width: 940px) {
+    body {
+        grid-template-columns: minmax(0, 440px);
+    }
+}
